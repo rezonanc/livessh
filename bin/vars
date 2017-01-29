@@ -32,16 +32,16 @@ export IMAGE_NAME="livessh-ubuntu18.04"  # volume name of .iso
 # N.B.: This proxy is used only during the build process; at runtime, the image itself will use a proxy only if one is
 #       advertised via Zeroconf/Avahi.
 # N.B.: This variable *may* be unset if you do not wish to use a proxy.
-export APT_PROXY="http://192.168.0.1:3142"
+export APT_PROXY=""
 
 ####################
 ## User configurables: more interesting
 #####################
 
-export USERNAME=ubuntu
+export USERNAME=edvinas
 export PASSWORD=ubuntu  # TODO: Currently not used.
 
-export LIVESSH_TIMEZONE="America/Los_Angeles"  # Should we use UTC instead?
+export LIVESSH_TIMEZONE="Europe/Vilnius"  # Should we use UTC instead?
 
 ####################
 ## User configurables: less interesting
@@ -49,7 +49,7 @@ export LIVESSH_TIMEZONE="America/Los_Angeles"  # Should we use UTC instead?
 
 export OUTPUT_ISO_PATH="${PWD}/../${IMAGE_NAME}.iso"
 
-export HOSTNAME_BASE="livessh"
+export HOSTNAME_BASE="chronos"
 
 # This Docker contaienr will be destroyed/recreated without warning as you run the build scripts.
 export CONTAINER_NAME="tmp-livessh"
@@ -62,7 +62,7 @@ export IMAGE_FLAVOUR="ubuntu-livessh"
 # (You probably want autologin, though, because we are not properly setting the live user's password.)  You can set this
 # to "${USERNAME}" instead if you would rather that the terminals be logged in as the live user and not as root.
 CUSTOMIZE_VARS+=(TERMINAL_AUTOLOGIN_USER)
-export TERMINAL_AUTOLOGIN_USER="root"
+export TERMINAL_AUTOLOGIN_USER=""
 
 #####################
 ## User configurables: for customization scripts
@@ -73,7 +73,6 @@ export TERMINAL_AUTOLOGIN_USER="root"
 # - I strongly suggest that you use the 'nofail,nobootwait' mount options (at a minimum) so that the live image
 #   will boot smoothly even if the NFS volume is not available.
 export LIVESSH_FSTAB_ENTRIES="""
-192.168.0.1:/srv/nfs/scratch /mnt/scratch nfs rsize=8192,wsize=8192,timeo=14,intr,nofail,nobootwait 0 0
 """
 
 #####################

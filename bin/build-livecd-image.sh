@@ -28,7 +28,7 @@ mkdir -p "${IMAGE_PATH}"/{casper,isolinux,install,preseed}
 
 sudo cp "${BASE_PATH}"/boot/vmlinuz-*-generic "${IMAGE_PATH}"/casper/vmlinuz
 sudo cp "${BASE_PATH}"/boot/initrd.img-*-generic "${IMAGE_PATH}"/casper/initrd.lz
-sudo cp /boot/memtest86+.bin "${IMAGE_PATH}"/install/memtest
+#sudo cp "${BASE_PATH}"/boot/memtest86+.bin "${IMAGE_PATH}"/install/memtest
 
 # TODO: Can we use this instead of our hacky preseeding?
 sudo touch "${IMAGE_PATH}"/preseed/ubuntu.seed
@@ -73,21 +73,8 @@ DEFAULT live
 LABEL live
   menu label ^Boot into live environment
   kernel /casper/vmlinuz
-#  append  file=/cdrom/preseed/ubuntu.seed boot=casper initrd=/casper/initrd.lz quiet splash --
-  append  file=/cdrom/preseed/ubuntu.seed boot=casper initrd=/casper/initrd.lz --
+  append  file=/cdrom/preseed/ubuntu.seed boot=casper initrd=/casper/initrd.lz toram --
 #  append  file=/cdrom/preseed/ubuntu.seed boot=casper initrd=/casper/initrd.lz console=tty0 console=hvc0,115200n8 console=ttyS0,115200n8 --
-# LABEL check
-#   menu label ^Check CD for defects
-#   kernel /casper/vmlinuz
-#   append  boot=casper integrity-check initrd=/casper/initrd.lz quiet splash --
-# LABEL memtest
-#   menu label ^Memory test
-#   kernel /install/memtest
-#   append -
-# LABEL hd
-#   menu label ^Boot from first hard disk
-#   localboot 0x80
-#   append -
 EOF
 
 ############################################
