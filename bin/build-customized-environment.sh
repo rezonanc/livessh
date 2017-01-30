@@ -41,7 +41,7 @@ done
 ## Go!
 #####################
 
-docker run -it --name "${CONTAINER_NAME}" -v "$ARTIFACTS_TMPDIR":/artifacts:rw -v "$RESOURCES_TMPDIR":/resources:ro "$DEBOOTSTRAP_IMAGE_TAG" /resources/customize.sh
+docker run --name "${CONTAINER_NAME}" -v "$ARTIFACTS_TMPDIR":/artifacts:rw -v "$RESOURCES_TMPDIR":/resources:ro "$DEBOOTSTRAP_IMAGE_TAG" /resources/customize.sh
 
 # Exit with the same exit code that the script in our container did.  docker-run exits with a zero
 # even if it fails, in which case we would otherwise happily report success.
