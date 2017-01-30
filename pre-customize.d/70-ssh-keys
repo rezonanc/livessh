@@ -2,4 +2,6 @@
 
 # TODO: Could also put other dotfiles here.
 mkdir -p "${RESOURCES_TMPDIR}"/home/"${USERNAME}"/.ssh
-cp -a "${HOME}"/.ssh/authorized_keys_ "${RESOURCES_TMPDIR}"/home/"${USERNAME}"/.ssh/authorized_keys
+cat << EOF > "${RESOURCES_TMPDIR}"/home/"${USERNAME}"/.ssh/authorized_keys
+ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQClxRQFZTJ3wMhaPivT3RSFZCyPisCBxnikY/FJjZH4tkfPkZzyyUdrz97wykDdmLzO9WhW+SGQI0T69IXTEzfoArLEWYvW35hL6QIeW//IaPHsGJYKLMY4ZCoSzJeZ6s3myzPFlNH+J4wAqjo9dxZx4+kPnKwZ9xPreyGODEQMI2Emb5JQ0NQGFgJUgDBO4aBm/8SkoLhMZYn6+r5UOcApKUNo6AOn7lZLruiFiofy5Q7Tn+kClx4j/unx6rgAJKy7lciZWdIgym1nOOF1bRbXMmDJ/vNwdiEnCDBW9MNllWxZvzxM7rton17O1+ktvlxW78r1zOoGi6N09bTMGrd/Dgmjrs5yWDiV0RveMC3wuzrwYVy7iX+VZQlPbLiMms/A0KqN3FL1Uf3OPUSZgN1+WzPFWvKGQ/7sKziMgC8Rqj/7w6GqJRgRIkkgD85iImZRY+B/3DoAdQOi/cuSR08yBKmzfgXyKTfr7azcUMn/D+oDpHPwkQma1AxnhKyKcTA1L2W2ld2/pUZQ68JDTXyhMlxGtpGrybcabZ+tsTqfdTCgXg6ItbEoW6sTNJA85gRdBRfJb0XgwXRQ++8UEB/1riHapDzW2RmoHPqAhn8hbaWcFa+G2S9DZFraHpzxc2hi24Sif+BNmuEH5BxDKjjDdSlA8zlfmYwR+ssRGVgD+w== rezonanc@gmail.com
+EOF
