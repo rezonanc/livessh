@@ -38,7 +38,7 @@ export APT_PROXY=""
 ## User configurables: more interesting
 #####################
 
-export USERNAME=edvinas
+export USERNAME=gate
 export PASSWORD=ubuntu  # TODO: Currently not used.
 
 export LIVESSH_TIMEZONE="Europe/Vilnius"  # Should we use UTC instead?
